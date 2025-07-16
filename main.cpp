@@ -243,6 +243,52 @@ int main (){
                     }
                     
                     case 5: {
+			int cuentaDestino;
+                        cout << "Ingrese el numero de cuenta destino: ";
+                        cin >> cuentaDestino;
+                        int idxDestino = -1;
+                            for (int i = 0; i < totalClientes; i++) {
+                               if (clientes[i].cuenta.numcu == cuentaDestino && i != n) {
+                               idxDestino = i;
+                               break;
+                             }
+                         }
+                         if (idxDestino == -1) {
+                        cout << "Cuenta destino no encontrada o invalida.\n";
+                        } else {
+                        cout << "Ingrese el monto a transferir: ";
+                        cin >> monto;
+                        if (monto > 0 && monto <= clientes[n].cuenta.din) {
+                            clientes[n].cuenta.din -= monto;
+                            clientes[idxDestino].cuenta.din += monto;
+                            system("cls");
+                            cout <<"===========================\n";
+                            cout <<"   Transferencia exitosa   \n";
+                            cout <<"===========================\n\n\n";
+                            cout <<"===========================================\n";
+                            cout <<"           BOLETA DE TRANSFERENCIA          \n";
+                            cout <<"===========================================\n";
+                            cout <<"ORIGEN\n";
+                            cout <<"Numero de Cuenta: "<<clientes[n].cuenta.numcu<<endl;
+                            cout <<"Titular: "<<clientes[n].nom<<endl;
+                            cout <<"-------------------------------------------\n";
+                            cout <<"DESTINO\n";
+                            cout <<"Beneficiario: "<<clientes[idxDestino].nom<<endl;
+                            cout <<"Numero de cuenta: "<<clientes[idxDestino].cuenta.numcu<<endl;
+                            cout <<"-------------------------------------------\n";
+                            cout <<"DETALLES\n";
+                            cout <<"Monto transferido: S/ " << monto << "\n\n";
+                            cout <<"===========================================\n";
+                            cout << "La boleta tambien fue enviada a tu correo: "<<endl;
+                            cout << clientes[n].correo.user << "@" << clientes[n].correo.domain << endl;
+                            cout << "============================================"<< endl << endl;  
+                             } else {
+                                cout <<"=======================================\n";
+                                cout << "Fondos insuficientes o monto invalido.\n";
+                                cout <<"=======================================\n";
+                                }
+                              }
+                            system("pause");
                         
                            break;
                         }
