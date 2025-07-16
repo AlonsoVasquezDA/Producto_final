@@ -6,7 +6,7 @@ using namespace std;
 
 
 int main (){
-    int op;
+    int op; 
     DATOS clientes[100];
     int totalClientes = 0;
     string nom, user, domain, contra,dni;
