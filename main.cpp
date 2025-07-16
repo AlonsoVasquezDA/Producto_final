@@ -26,13 +26,13 @@ int main (){
     
     do{
         system("cls");
-		cout << " ========================================================" << endl;
+	cout << " ========================================================" << endl;
     	cout << "|                     MENU PRINCIPAL                    |" << endl;
     	cout << " ========================================================" << endl;
     	cout << "|  1.- Crear una cuenta                                 |" << endl;
     	cout << "|  2.- Ingresar a una cuenta                            |" << endl;
     	cout << "|  3.- Salir                                            |" << endl;
-   	 	cout << " ========================================================" << endl;
+   	 cout << " ========================================================" << endl;
     	cout << endl;
         cout << "Ingrese una opcion: ";
         cin >> op;
@@ -92,7 +92,7 @@ int main (){
                	    cout << "La contrasena debe tener entre 8 y 16 caracteres.\n";
         		    cout << "Ingrese nuevamente: ";
         		    cin >> contra;
-    		    }
+    		}
 
                 cout << "Ingrese su numero de cuenta (4 digitos): ";
                 cin >> numcu;
@@ -134,7 +134,18 @@ int main (){
 
                 break; 
 
-            case 2: 
+            case 2:
+		system("cls");
+              	cout << endl<<endl<<endl;
+            	cout << "========================================" << endl;
+            	cout << "       INGRESO A CUENTA EXISTENTE        " << endl;
+            	cout << "========================================" << endl;
+            	cout << "Ingrese su numero de cuenta: ";
+            	cin >> numcu;
+            	cout << "Ingrese su DNI: ";
+            	cin >> dni;
+            	cout << "Ingrese su contrasena: ";
+            	cin >> contra;
 
 
                 break; 
