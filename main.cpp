@@ -186,9 +186,22 @@ int main (){
                     	case 2:
                             cout << "Ingrese el monto a depositar: ";
                             cin >> monto;
+			    system("cls");
                             if (monto > 0) {
                             	clientes[n].cuenta.din += monto;
-                            	cout << "Deposito exitoso.\n";
+				cout<<"\n======================\n;
+                            	cout<< "Deposito exitoso.\n";
+			        cout<<"========================\n\n\n;
+                                cout<< "\n================================================" <<endl;
+                                cout<< "              BOLETA DE DEPOSITO                  " <<endl;
+                                cout<< "=================================================" <<endl;
+                                cout<< "Nombre del titular : " << clientes[n].nom << endl;
+                                cout<< "DNI                : " << clientes[n].dni << endl;
+                                cout<< "Monto depositado   : " << monto <<endl;
+                                cout<< "=================================================" <<endl;
+                                cout<< "La boleta tambien fue enviada a tu correo: \n";
+                                cout<< clientes[n].correo.user << "@" << clientes[n].correo.domain <<endl;
+                                cout<< "=================================================" << endl << endl;
                             } else {
                             	cout << "Monto invalido.\n";
                             }
