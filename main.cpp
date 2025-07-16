@@ -26,13 +26,13 @@ int main (){
     
     do{
         system("cls");
-		cout << " ========================================================" << endl;
+	cout << " ========================================================" << endl;
     	cout << "|                     MENU PRINCIPAL                    |" << endl;
     	cout << " ========================================================" << endl;
     	cout << "|  1.- Crear una cuenta                                 |" << endl;
     	cout << "|  2.- Ingresar a una cuenta                            |" << endl;
     	cout << "|  3.- Salir                                            |" << endl;
-   	 	cout << " ========================================================" << endl;
+   	 cout << " ========================================================" << endl;
     	cout << endl;
         cout << "Ingrese una opcion: ";
         cin >> op;
@@ -135,6 +135,17 @@ int main (){
                 break; 
 
             case 2: 
+		system("cls");
+              	cout << endl<<endl<<endl;
+           	cout << "========================================" << endl;
+           	cout << "       INGRESO A CUENTA EXISTENTE        " << endl;
+            	cout << "========================================" << endl;
+            	cout << "Ingrese su numero de cuenta: ";
+            	cin >> numcu;
+            	cout << "Ingrese su DNI: ";
+            	cin >> dni;
+            	cout << "Ingrese su contrasena: ";
+            	cin >> contra;
 
 
                 break; 
