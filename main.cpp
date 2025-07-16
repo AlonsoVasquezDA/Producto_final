@@ -146,9 +146,135 @@ int main (){
             	cin >> dni;
             	cout << "Ingrese su contrasena: ";
             	cin >> contra;
+		int n = -1;
+            for (int i = 0; i < totalClientes; i++) {
+                if (clientes[i].cuenta.numcu == numcu && clientes[i].dni == dni && clientes[i].cuenta.contra == contra) {
+                    n = i;
+                    break;
+                }
+            }
 
+            if (n != -1) {
+                int op2;
+                do {
+                    system("cls");
+                    cout<<endl;
+                    cout << "Hola, " << clientes[n].nom << ". Bienvenido a tu cuenta BCHP\n";
+ 		    cout << endl<<endl;
+                    cout << "========================================" << endl;
+                    cout << "         MENU DE OPERACIONES            " << endl;
+                    cout << "========================================" << endl;
+                    cout << "1.- Mostrar Saldo" << endl;
+                    cout << "2.- Depositar" << endl;
+                    cout << "3.- Retirar" << endl;
+                    cout << "4.- Cambiar contrasena" << endl;
+                    cout << "5.- Transferencia" << endl;
+                    cout << "6.- Salir" << endl;
+                    cout << "========================================" << endl<<endl;
+                    cout<<"Ingrese una opcion: ";
+                    cin >> op2;
 
-                break; 
+                    double monto;
+                    switch (op2) {
+                    	
+                    case 1:
+                        cout << "Saldo actual: S/ " << clientes[n].cuenta.din << endl;
+                        system("pause");
+                        break;
+                        
+                    case 2:
+                        cout << "Ingrese el monto a depositar: ";
+                        cin >> monto;
+                        if (monto > 0) {
+                            clientes[n].cuenta.din += monto;
+                            cout << "Deposito exitoso.\n";
+                        } else {
+                            cout << "Monto invalido.\n";
+                        }
+                        system("pause");
+                        break;
+                        
+                    case 3:
+                        cout << "Ingrese el monto a retirar: ";
+                        cin >> monto;
+                        if (monto > 0 && monto <= clientes[n].cuenta.din) {
+                            clientes[n].cuenta.din -= monto;
+                            cout << "\n==============================================" << endl;
+                            cout << "               BOLETA DE RETIRO               " << endl;
+                            cout << "==============================================" << endl;
+                            cout << "Nombre del titular : " << clientes[n].nom << endl;
+                            cout << "DNI                : " << clientes[n].dni << endl;
+                            cout << "Nro. de cuenta     : " << clientes[n].cuenta.numcu << endl;
+                            cout << "Monto retirado     : S/ " << monto << endl;
+                            cout << "Saldo restante     : S/ " << clientes[n].cuenta.din << endl;
+                            cout << "==============================================" << endl;
+                            cout << "La boleta tambien fue enviada a tu correo: \n";
+                            cout << clientes[n].correo.user << "@" << clientes[n].correo.domain << endl;
+                            cout << "==============================================" << endl << endl;    
+                        } else {
+                            cout << "Fondos insuficientes o monto invalido.\n";
+                        }
+                        system("pause");
+                        break;
+                        
+                    case 4: {
+                        cin.ignore();
+                        string actual, nueva;
+                        cout << "Ingrese su contrasena actual: ";
+                        getline(cin, actual);
+                        if (actual == clientes[n].cuenta.contra) {
+                            cout << "Ingrese la nueva contrasena(8-16 caracteres): ";
+                            getline(cin, nueva);
+                            
+                            while(nueva.length() <8 || nueva.length()>16){
+                            	cout<<"La contraseña debe tener entre 8 y 16 caracteres.\n";
+                            	cout<<"Ingrese nuevamente: ";
+                            	getline(cin,nueva);
+							}
+                            clientes[n].cuenta.contra = nueva;
+                            cout<<"\n==================================\n";
+                            cout<<"Contrasena actualizada con exito.\n";
+                            cout<<"==================================\n";
+                        } else {
+                            cout << "Contrasena incorrecta.\n";
+                        }
+                        system("pause");
+                        break;
+                    }
+                    
+                    case 5: {
+                        
+                           break;
+                        }
+                           
+                    case 6: {
+                    	char ops2;
+                        cout << "Esta seguro de salir? (S/N): ";
+                        cin >> ops2;
+                        if (ops2 == 'S' || ops2 == 's') {
+                         cout << "Regresando al menu principal. ";
+                         } else {
+                         op2 = -1;
+                           }
+                        break;
+                        }
+                        
+                    default:
+                        cout << "========================================" << endl;
+        				cout << "          Opcion invalida               " << endl;
+            			cout << "========================================" << endl;
+                        system("pause");
+                        break;
+                        }
+                    } while (op2 != 6);
+                } else {
+                    cout << endl<<endl;
+                    cout << "========================================" << endl;
+                    cout << "     DNI o contrasena incorrectos       " << endl;
+                    cout << "========================================" << endl;
+                    system("pause");
+                   }
+               break; 
 
             case 3:
             
