@@ -307,8 +307,8 @@ int main (){
                         
                     default:
                         cout << "========================================" << endl;
-        				cout << "          Opcion invalida               " << endl;
-            			cout << "========================================" << endl;
+        	        cout << "          Opcion invalida               " << endl;
+            	        cout << "========================================" << endl;
                         system("pause");
                         break;
                         }
