@@ -32,7 +32,7 @@ int main (){
     	cout << "|  1.- Crear una cuenta                                 |" << endl;
     	cout << "|  2.- Ingresar a una cuenta                            |" << endl;
     	cout << "|  3.- Salir                                            |" << endl;
-   	cout << " ========================================================" << endl;
+   	    cout << " ========================================================" << endl;
     	cout << endl;
         cout << "Ingrese una opcion: ";
         cin >> op;
@@ -43,7 +43,7 @@ int main (){
             case 1:{
                 system("cls");
                 if (totalClientes >= 100) {
-  		    cout << endl<<endl;
+  		            cout << endl<<endl;
                     cout << "============================================" << endl;
                     cout << "  Lo sentimos, limite de cuentas alcanzado  " << endl;
                     cout << "============================================" << endl<<endl;
@@ -92,7 +92,7 @@ int main (){
                	     cout << "La contrasena debe tener entre 8 y 16 caracteres.\n";
         	     cout << "Ingrese nuevamente: ";
         	     cin >> contra;
-    		}
+    		    }
 
                 cout << "Ingrese su numero de cuenta (4 digitos): ";
                 cin >> numcu;
@@ -110,7 +110,7 @@ int main (){
 
                 while (repetido > 0) {
                     cout << "Ese numero de cuenta ya esta registrado."<<endl;
-		    cout << "Ingrese uno diferente: ";
+		            cout << "Ingrese uno diferente: ";
                     cin >> numcu;
                     repetido = 0;
                     for (int i = 0; i < totalClientes; i++) {
@@ -133,13 +133,13 @@ int main (){
                 system("pause");
 
                 break; 
-	     }
+	        }
 		
             case 2: {
-		system("cls");
+		        system("cls");
               	cout << endl<<endl<<endl;
-           	cout << "========================================" << endl;
-           	cout << "       INGRESO A CUENTA EXISTENTE        " << endl;
+           	    cout << "========================================" << endl;
+           	    cout << "       INGRESO A CUENTA EXISTENTE        " << endl;
             	cout << "========================================" << endl;
             	cout << "Ingrese su numero de cuenta: ";
             	cin >> numcu;
@@ -147,7 +147,7 @@ int main (){
             	cin >> dni;
             	cout << "Ingrese su contrasena: ";
             	cin >> contra;
-		int n = -1;
+		        int n = -1;
                 for (int i = 0; i < totalClientes; i++) {
                     if (clientes[i].cuenta.numcu == numcu && clientes[i].dni == dni && clientes[i].cuenta.contra == contra) {
                     n = i;
@@ -161,7 +161,7 @@ int main (){
                         system("cls");
                         cout<<endl;
                      	cout << "Hola, " << clientes[n].nom << ". Bienvenido a tu cuenta BCHP\n";
- 		    	cout << endl<<endl;
+ 		    	        cout << endl<<endl;
                     	cout << "========================================" << endl;
                     	cout << "         MENU DE OPERACIONES            " << endl;
                     	cout << "========================================" << endl;
@@ -186,9 +186,22 @@ int main (){
                     	case 2:
                             cout << "Ingrese el monto a depositar: ";
                             cin >> monto;
+			    system("cls");
                             if (monto > 0) {
                             	clientes[n].cuenta.din += monto;
-                            	cout << "Deposito exitoso.\n";
+				cout<<"\n======================\n;
+                            	cout<< "Deposito exitoso.\n";
+			        cout<<"========================\n\n\n;
+                                cout<< "\n================================================" <<endl;
+                                cout<< "              BOLETA DE DEPOSITO                  " <<endl;
+                                cout<< "=================================================" <<endl;
+                                cout<< "Nombre del titular : " << clientes[n].nom << endl;
+                                cout<< "DNI                : " << clientes[n].dni << endl;
+                                cout<< "Monto depositado   : " << monto <<endl;
+                                cout<< "=================================================" <<endl;
+                                cout<< "La boleta tambien fue enviada a tu correo: \n";
+                                cout<< clientes[n].correo.user << "@" << clientes[n].correo.domain <<endl;
+                                cout<< "=================================================" << endl << endl;
                             } else {
                             	cout << "Monto invalido.\n";
                             }
@@ -236,15 +249,15 @@ int main (){
                             	     cout<<"\n==================================\n";
                            	     cout<<"Contrasena actualizada con exito.\n";
                             	     cout<<"==================================\n";
-                             } else {
+                            } else {
                             cout << "Contrasena incorrecta.\n";
-                             }
+                            }
                              system("pause");
                              break;
                         }
                     
                         case 5: {
-			    int cuentaDestino;
+			                int cuentaDestino;
                             cout << "Ingrese el numero de cuenta destino: ";
                             cin >> cuentaDestino;
                             int idxDestino = -1;
@@ -261,9 +274,9 @@ int main (){
                         	cin >> monto;
                         	if (monto > 0 && monto <= clientes[n].cuenta.din) {
                             		clientes[n].cuenta.din -= monto;
-                           		clientes[idxDestino].cuenta.din += monto;
+                           		    clientes[idxDestino].cuenta.din += monto;
                             		system("cls");
-                           		cout <<"===========================\n";
+                           		    cout <<"===========================\n";
                             		cout <<"   Transferencia exitosa   \n";
                             		cout <<"===========================\n\n\n";
                             		cout <<"===========================================\n";
@@ -271,7 +284,7 @@ int main (){
                             		cout <<"===========================================\n";
                             		cout <<"ORIGEN\n";
                             		cout <<"Numero de Cuenta: "<<clientes[n].cuenta.numcu<<endl;
-                           		cout <<"Titular: "<<clientes[n].nom<<endl;
+                           		    cout <<"Titular: "<<clientes[n].nom<<endl;
                             		cout <<"-------------------------------------------\n";
                             		cout <<"DESTINO\n";
                             		cout <<"Beneficiario: "<<clientes[idxDestino].nom<<endl;
@@ -287,10 +300,10 @@ int main (){
                                     	cout <<"=======================================\n";
                                 	cout << "Fondos insuficientes o monto invalido.\n";
                                 	cout <<"=======================================\n";
-                                 }
-                              }
-                              system("pause");
-                              break;
+                                }
+                            }
+                            system("pause");
+                            break;
                         }
                            
                         case 6: {
@@ -307,7 +320,7 @@ int main (){
                         
                         default:
                            cout << "========================================" << endl;
-        	           cout << "          Opcion invalida               " << endl;
+        	               cout << "          Opcion invalida               " << endl;
             	           cout << "========================================" << endl;
                            system("pause");
                            break;
@@ -319,9 +332,9 @@ int main (){
                     cout << "     DNI o contrasena incorrectos       " << endl;
                     cout << "========================================" << endl;
                     system("pause");
-                   }
-               break; 
-	    }
+                }
+                break; 
+	        }
 		
             case 3:{
 	         char ops;
@@ -336,10 +349,10 @@ int main (){
                     op = -1;
                    }
                 break; 
-	       }
+	        }
 		
             default: 
-		 cout << endl<<endl;
+		        cout << endl<<endl;
                  cout << "========================================" << endl;
                  cout << "          Opcion invalida               " << endl;
                  cout << "========================================" << endl;
