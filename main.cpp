@@ -32,7 +32,7 @@ int main (){
     	cout << "|  1.- Crear una cuenta                                 |" << endl;
     	cout << "|  2.- Ingresar a una cuenta                            |" << endl;
     	cout << "|  3.- Salir                                            |" << endl;
-   	 cout << " ========================================================" << endl;
+   	cout << " ========================================================" << endl;
     	cout << endl;
         cout << "Ingrese una opcion: ";
         cin >> op;
@@ -40,10 +40,10 @@ int main (){
         cin.ignore();
 
         switch(op){
-            case 1:
+            case 1:{
                 system("cls");
                 if (totalClientes >= 100) {
-  				    cout << endl<<endl;
+  		    cout << endl<<endl;
                     cout << "============================================" << endl;
                     cout << "  Lo sentimos, limite de cuentas alcanzado  " << endl;
                     cout << "============================================" << endl<<endl;
@@ -89,10 +89,10 @@ int main (){
                 cout << "Genere una contrasena (8-16 caracteres): ";
                 cin >> contra;
                 while (contra.length() < 8 || contra.length() > 16) {
-               	    cout << "La contrasena debe tener entre 8 y 16 caracteres.\n";
-        		    cout << "Ingrese nuevamente: ";
-        		    cin >> contra;
-    		    }
+               	     cout << "La contrasena debe tener entre 8 y 16 caracteres.\n";
+        	     cout << "Ingrese nuevamente: ";
+        	     cin >> contra;
+    		}
 
                 cout << "Ingrese su numero de cuenta (4 digitos): ";
                 cin >> numcu;
@@ -110,7 +110,7 @@ int main (){
 
                 while (repetido > 0) {
                     cout << "Ese numero de cuenta ya esta registrado."<<endl;
-				    cout << "Ingrese uno diferente: ";
+		    cout << "Ingrese uno diferente: ";
                     cin >> numcu;
                     repetido = 0;
                     for (int i = 0; i < totalClientes; i++) {
@@ -133,8 +133,9 @@ int main (){
                 system("pause");
 
                 break; 
-
-            case 2: 
+	     }
+		
+            case 2: {
 		system("cls");
               	cout << endl<<endl<<endl;
            	cout << "========================================" << endl;
@@ -147,14 +148,14 @@ int main (){
             	cout << "Ingrese su contrasena: ";
             	cin >> contra;
 		int n = -1;
-            for (int i = 0; i < totalClientes; i++) {
-                if (clientes[i].cuenta.numcu == numcu && clientes[i].dni == dni && clientes[i].cuenta.contra == contra) {
+                for (int i = 0; i < totalClientes; i++) {
+                    if (clientes[i].cuenta.numcu == numcu && clientes[i].dni == dni && clientes[i].cuenta.contra == contra) {
                     n = i;
                     break;
+                    }
                 }
-            }
 
-            if (n != -1) {
+           if (n != -1) {
                 int op2;
                 do {
                     system("cls");
@@ -247,13 +248,13 @@ int main (){
                         cout << "Ingrese el numero de cuenta destino: ";
                         cin >> cuentaDestino;
                         int idxDestino = -1;
-                            for (int i = 0; i < totalClientes; i++) {
+                        for (int i = 0; i < totalClientes; i++) {
                                if (clientes[i].cuenta.numcu == cuentaDestino && i != n) {
                                idxDestino = i;
                                break;
-                             }
+                               }
                          }
-                         if (idxDestino == -1) {
+                        if (idxDestino == -1) {
                         cout << "Cuenta destino no encontrada o invalida.\n";
                         } else {
                         cout << "Ingrese el monto a transferir: ";
@@ -289,7 +290,6 @@ int main (){
                                 }
                               }
                             system("pause");
-                        
                            break;
                         }
                            
@@ -321,21 +321,22 @@ int main (){
                     system("pause");
                    }
                break; 
-
+	    }
+		
             case 3:{
 	         char ops;
                  cout << "Esta seguro de salir? (S/N): ";
                  cin >> ops;
                  if (ops == 'S' || ops == 's') {
-                cout << endl<<endl;
-                cout << "========================================" << endl;
-            	cout << "  Gracias por confiar en BANCO BCHP      " << endl;
-            	cout << "========================================" << endl<<endl;
-                } else {
-                op = -1;
-                }
+                   cout << endl<<endl;
+                   cout << "========================================" << endl;
+            	   cout << "  Gracias por confiar en BANCO BCHP      " << endl;
+            	   cout << "========================================" << endl<<endl;
+                   } else {
+                    op = -1;
+                   }
                 break; 
-	    }
+	       }
 		
             default: 
 		 cout << endl<<endl;
@@ -344,7 +345,7 @@ int main (){
                  cout << "========================================" << endl;
                  system("pause");   
                 break;
-        }
+        } 
 
     } while(op!=3);
 
