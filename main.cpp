@@ -322,14 +322,28 @@ int main (){
                    }
                break; 
 
-            case 3:
-            
-            
+            case 3:{
+	         char ops;
+                 cout << "Esta seguro de salir? (S/N): ";
+                 cin >> ops;
+                 if (ops == 'S' || ops == 's') {
+                cout << endl<<endl;
+                cout << "========================================" << endl;
+            	cout << "  Gracias por confiar en BANCO BCHP      " << endl;
+            	cout << "========================================" << endl<<endl;
+                } else {
+                op = -1;
+                }
                 break; 
-
+	    }
+		
             default: 
-                break; 
-
+		 cout << endl<<endl;
+                 cout << "========================================" << endl;
+                 cout << "          Opcion invalida               " << endl;
+                 cout << "========================================" << endl;
+                 system("pause");   
+                break;
         }
 
     } while(op!=3);
