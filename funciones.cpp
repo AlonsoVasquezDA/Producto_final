@@ -21,6 +21,10 @@ void leerDatos(DATOS &c, string n, int e, string d, long long nu, CORREO em, CUE
     c.correo = em;
     c.cuenta = cu;
 }
+int numcuenta(int m,int n){
+    m=1001+n;
+    return m;
+}
 
 void mostrarDatos(DATOS &c) {
     cout << endl;
