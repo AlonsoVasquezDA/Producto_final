@@ -6,6 +6,7 @@
 void leerCorreo(CORREO &, string , string );
 void leerCuenta(CUENTA &, int , string , double );
 void leerDatos(DATOS &, string , int , string , long long , CORREO , CUENTA );
+int numcuenta(int,int);
 void mostrarDatos(DATOS &);
 
 #endif 
