@@ -37,6 +37,7 @@ int main (){
         cout << "Ingrese una opcion: ";
         cin >> op;
         cout << endl;
+	cin.clear();
         cin.ignore();
 
         switch(op){
@@ -59,15 +60,18 @@ int main (){
 
                 cout << "Ingrese su edad: ";
                 cin >> edad;
+		cin.clear();
+		cin.ignore();
                 while (edad < 18) {
                     cout << "Debe ser mayor de edad para crear una cuenta.\n";
                     cout << "Ingrese nuevamente su edad: ";
                     cin >> edad;
-                    cin.ignore();
                 }
 
                 cout << "Ingrese su DNI: ";
                 cin >> dni;
+		cin.clear();
+		cin.ignore();
                 while (dni.length() < 8 || dni.length() > 8) {
                     cout << "El DNI debe tener exactamente 8 digitos.\nIngrese nuevamente: ";
                     cin >> dni;
@@ -75,6 +79,8 @@ int main (){
 
                 cout << "Ingrese su numero telefonico: ";
                 cin >> cel;
+		cin.clear();
+		cin.ignore();
                 while (cel < 900000000 || cel > 999999999) {
                     cout << "El numero debe tener 9 digitos y comenzar con 9.\nIngrese nuevamente: ";
                     cin >> cel;
@@ -94,32 +100,8 @@ int main (){
         	     cin >> contra;
     		}
 
-                cout << "Ingrese su numero de cuenta (4 digitos): ";
-                cin >> numcu;
-                while (numcu < 1000 || numcu > 9999) {
-                    cout << "El numero de cuenta debe tener 4 digitos.\nIngrese nuevamente: ";
-                    cin >> numcu;
-                }
-                
-                int repetido = 0;
-                for (int i = 0; i < totalClientes; i++) {
-                    if (clientes[i].cuenta.numcu == numcu) {
-                        repetido++;
-                    }
-                }
-
-                while (repetido > 0) {
-                    cout << "Ese numero de cuenta ya esta registrado."<<endl;
-		    cout << "Ingrese uno diferente: ";
-                    cin >> numcu;
-                    repetido = 0;
-                    for (int i = 0; i < totalClientes; i++) {
-                        if (clientes[i].cuenta.numcu == numcu) {
-                            repetido++;
-                        }
-                    }
-                }
-
+		numcu=numcuenta(numcu,totalClientes);
+		    
                 leerCorreo(email, user, domain);
                 leerCuenta(cuenta, numcu, contra, din);
                 leerDatos(clientes[totalClientes], nom, edad, dni, cel, email, cuenta);
@@ -129,6 +111,10 @@ int main (){
                 cout << "========================================" << endl;
                 cout << "     Cuenta creada exitosamente!        " << endl;
                 cout << "========================================" << endl<<endl;
+
+		cout << "=======================================" <<endl;
+            	cout << " Su numero de cuenta es: "<<numcu<<"   " <<endl;
+            	cout << "=======================================" <<endl;
                 mostrarDatos(clientes[totalClientes - 1]);
                 system("pause");
 
@@ -143,8 +129,12 @@ int main (){
             	cout << "========================================" << endl;
             	cout << "Ingrese su numero de cuenta: ";
             	cin >> numcu;
+		cin.clear();
+		cin.ignore();
             	cout << "Ingrese su DNI: ";
             	cin >> dni;
+		cin.clear();
+		cin.ignore();
             	cout << "Ingrese su contrasena: ";
             	cin >> contra;
 		int n = -1;
@@ -174,6 +164,8 @@ int main (){
                     	cout << "========================================" << endl<<endl;
                     	cout<<"Ingrese una opcion: ";
                     	cin >> op2;
+			cin.clear();
+			cin.ignore();
 
                     	double monto;
                     	switch (op2) {
@@ -186,6 +178,8 @@ int main (){
                     	case 2:
                             cout << "Ingrese el monto a depositar: ";
                             cin >> monto;
+			    cin.clear();
+			    cin.ignore();
 			    system("cls");
                             if (monto > 0) {
                             	clientes[n].cuenta.din += monto;
@@ -209,6 +203,8 @@ int main (){
                         case 3:
                             cout << "Ingrese el monto a retirar: ";
                             cin >> monto;
+			    cin.clear();
+			    cin.ignore();
                             if (monto > 0 && monto <= clientes[n].cuenta.din) {
                             	clientes[n].cuenta.din -= monto;
                             	cout << "\n==============================================" << endl;
@@ -258,6 +254,8 @@ int main (){
 			    int cuentaDestino;
                             cout << "Ingrese el numero de cuenta destino: ";
                             cin >> cuentaDestino;
+			    cin.clear();
+			    cin.ignore();
                             int idxDestino = -1;
                             for (int i = 0; i < totalClientes; i++) {
                           	if (clientes[i].cuenta.numcu == cuentaDestino && i != n) {
@@ -270,6 +268,8 @@ int main (){
                              } else {
                                 cout << "Ingrese el monto a transferir: ";
                         	cin >> monto;
+				cin.clear();
+				cin.ignore();
                         	if (monto > 0 && monto <= clientes[n].cuenta.din) {
                             		clientes[n].cuenta.din -= monto;
                            		clientes[idxDestino].cuenta.din += monto;
